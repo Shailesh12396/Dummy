@@ -4,6 +4,8 @@ import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import SideBar from './Components/Chats/SideBar';
 import ChatWindow from './Components/Chats/ChatWindow';
+import UserProfile from './Components/Chats/UserProfile';
+import bgImage from '../src/assets/bg.png';
 
 function AppRoutes({ selectedUser, onUserSelect }) {
   return (
@@ -16,12 +18,16 @@ function AppRoutes({ selectedUser, onUserSelect }) {
           {selectedUser ? (
             <ChatWindow user={selectedUser} />
           ) : (
-            <div className="flex items-center justify-center flex-1 p-4 text-center font-bold text-2xl text-green-900">
-              Select a user to start chatting!
-            </div>
+            <div
+      className="h-screen w-full bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+      }}
+    />
           )}
         </div>
       } />
+      <Route path="/profile/:userId" element={<UserProfile />} />
     </Routes>
   );
 }

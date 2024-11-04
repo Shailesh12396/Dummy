@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.jpg';
 
 function SignUp() {
     const [name, setName] = useState('');
@@ -13,71 +14,85 @@ function SignUp() {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-green-100">
-            <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold text-center text-gray-700">Sign Up</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-600">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                            className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
-                        />
+        <div className=" w-screen h-screen flex flex-col gap-8 justify-center items-center text-base">
+            <div className="bg-gradient-to-br from-indigo-400 to-green-400 bg-opacity-60  w-1/3 rounded-3xl shadow-lg shadow-indigo-500">
+                <div className="w-full h-28 bg-indigo-900 px-6 flex items-center justify-between rounded-t-3xl">
+                    <div className="relative py-4 text-white">
+                        <p className="text-xl font-medium leading-tight pb-1">Create an Account!</p>
+                        <p className="pb-3">Fill in the details below</p>
                     </div>
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-600">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-600">Phone Number</label>
-                        <input
-                            type="tel"
-                            id="phone"
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                            required
-                            className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="role" className="block text-sm font-medium text-gray-600">Role</label>
-                        <select
-                            id="role"
-                            value={role}
-                            onChange={(e) => setRole(e.target.value)}
-                            required
-                            className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
+                    <img src={logo} alt="logo" className="w-20 h-20 rounded-full border-4 border-indigo-900 border-opacity-5" />
+                </div>
+
+                <div className="mt-6 mx-6 text-lg">
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                        <div>
+                            <label htmlFor="name" className="block mb-1 text-white">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                                placeholder="Enter your name"
+                                className="bg-transparent placeholder-black w-full border border-secondary rounded-xl py-1 pl-2 shadow-sm shadow-primary"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="email" className="block mb-1 text-white">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                placeholder="Enter your email"
+                                className="bg-transparent placeholder-black w-full border border-secondary rounded-xl py-1 pl-2 shadow-sm shadow-primary"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="phone" className="block mb-1 text-white">Phone Number</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                                required
+                                placeholder="Enter your phone number"
+                                className="bg-transparent placeholder-black w-full border border-secondary rounded-xl py-1 pl-2 shadow-sm shadow-primary"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="role" className="block mb-1 text-white">Role</label>
+                            <select
+                                id="role"
+                                value={role}
+                                onChange={(e) => setRole(e.target.value)}
+                                required
+                                className="bg-transparent placeholder-text w-full border border-secondary rounded-xl py-1 pl-2 shadow-sm shadow-primary"
+                            >
+                                <option value="" disabled>Select a role</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="student">Student</option>
+                                <option value="institute">Institute</option>
+                            </select>
+                        </div>
+                        <button
+                            type="submit"
+                            className="w-full py-2 bg-indigo-500 rounded-xl shadow-md"
                         >
-                            <option value="" disabled>Select a role</option>
-                            <option value="teacher">Teacher</option>
-                            <option value="student">Student</option>
-                            <option value="institute">Institute</option>
-                        </select>
-                    </div>
-                    <button
-                        type="submit"
-                        className="w-full px-4 py-2 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none"
-                    >
-                        Sign Up
-                    </button>
-                </form>
-                <p className="text-sm text-center text-gray-600">
-                    Having an account?{' '}
-                    <Link to="/" className="text-blue-500 hover:underline">
-                        Log in
-                    </Link>
-                </p>
+                            <p className="text-primary font-medium mx-auto">
+                                Sign Up
+                            </p>
+                        </button>
+                    </form>
+                    <p className="mt-4 cursor-pointer text-slate-100 text-center py-3">
+                        Already have an account?{' '}
+                        <Link to="/" className="text-green-700 hover:text-green-800 font-medium">
+                            LogIn
+                        </Link>
+                    </p>
+                </div>
             </div>
         </div>
     );
